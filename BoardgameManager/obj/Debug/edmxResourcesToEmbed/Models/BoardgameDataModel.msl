@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BoardgameDBModelStoreContainer" CdmEntityContainer="BoardgameDBEntities">
+    <EntitySetMapping Name="Boardgames">
+      <EntityTypeMapping TypeName="BoardgameDBModel.Boardgame">
+        <MappingFragment StoreEntitySet="Boardgame">
+          <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="BoardGameType_Id" ColumnName="BoardGameType_Id" />
+          <ScalarProperty Name="MinAge" ColumnName="MinAge" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BoardgameCalls">
+      <EntityTypeMapping TypeName="BoardgameDBModel.BoardgameCall">
+        <MappingFragment StoreEntitySet="BoardgameCall">
+          <ScalarProperty Name="CallDate" ColumnName="CallDate" />
+          <ScalarProperty Name="CallType" ColumnName="CallType" />
+          <ScalarProperty Name="Boardgame_Id" ColumnName="Boardgame_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BoardGameTypes">
+      <EntityTypeMapping TypeName="BoardgameDBModel.BoardGameType">
+        <MappingFragment StoreEntitySet="BoardGameType">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
