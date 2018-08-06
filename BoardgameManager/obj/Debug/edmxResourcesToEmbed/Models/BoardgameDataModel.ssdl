@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BoardgameDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Boardgame">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="MinAge" Type="nvarchar" MaxLength="2" />
+    <Property Name="BoardGameType_Id" Type="int" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="200" />
+    <Property Name="ModifiedDate" Type="datetime2" Precision="7" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="200" />
+    <Property Name="ReleaseDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="BoardgameCall">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Boardgame_Id" Type="int" Nullable="false" />
+    <Property Name="CallType" Type="int" Nullable="false" />
+    <Property Name="CallDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="BoardGameType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="200" />
+    <Property Name="ModifiedDate" Type="datetime2" Precision="7" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_Boardgame_Type">
+    <End Role="BoardGameType" Type="Self.BoardGameType" Multiplicity="0..1" />
+    <End Role="Boardgame" Type="Self.Boardgame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BoardGameType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Boardgame">
+        <PropertyRef Name="BoardGameType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BoardgameCall_Boardgame">
+    <End Role="Boardgame" Type="Self.Boardgame" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BoardgameCall" Type="Self.BoardgameCall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Boardgame">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BoardgameCall">
+        <PropertyRef Name="Boardgame_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BoardgameDBModelStoreContainer">
+    <EntitySet Name="Boardgame" EntityType="Self.Boardgame" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BoardgameCall" EntityType="Self.BoardgameCall" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BoardGameType" EntityType="Self.BoardGameType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Boardgame_Type" Association="Self.FK_Boardgame_Type">
+      <End Role="BoardGameType" EntitySet="BoardGameType" />
+      <End Role="Boardgame" EntitySet="Boardgame" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BoardgameCall_Boardgame" Association="Self.FK_BoardgameCall_Boardgame">
+      <End Role="Boardgame" EntitySet="Boardgame" />
+      <End Role="BoardgameCall" EntitySet="BoardgameCall" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
