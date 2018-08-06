@@ -1,5 +1,0 @@
-C:\Inne\BoardgameManager\BoardgameManager.DatabaseScripts\bin\Debug\BoardgameManager.DatabaseScripts.dacpac
-C:\Inne\BoardgameManager\BoardgameManager.DatabaseScripts\bin\Debug\BoardgameManager.DatabaseScripts.dll
-C:\Inne\BoardgameManager\BoardgameManager.DatabaseScripts\bin\Debug\BoardgameManager.DatabaseScripts.pdb
-C:\Inne\BoardgameManager\BoardgameManager.DatabaseScripts\obj\Debug\BoardgameManager.DatabaseScripts.dll
-C:\Inne\BoardgameManager\BoardgameManager.DatabaseScripts\obj\Debug\BoardgameManager.DatabaseScripts.pdb
